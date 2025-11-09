@@ -1,0 +1,78 @@
+public class PriorityQueueHeap {
+    int[] heap;
+    int size;
+
+    public PriorityQueueHeap(int capacity) {
+        heap = new int[capacity + 1]; // index starts at 1
+        size = 0;
+    }
+
+    // Insert element into heap
+    public void insert(int val) {
+        heap[++size] = val;
+        int i = size;
+        while (i > 1 && heap[i / 2] < heap[i]) {
+            // swap parent and child
+            int temp = heap[i];
+            heap[i] = heap[i / 2];
+            heap[i / 2] = temp;
+            i = i / 2;
+        }
+    }
+
+    // Remove highest priority element (root)
+    public int remove() {
+        if (size == 0) {
+            System.out.println("Heap is empty!");
+            return -1;
+        }
+
+        int max = heap[1];
+        heap[1] = heap[size--]; // move last to root
+        heapify(1);
+        return max;
+    }
+
+    // Maintain heap property
+    void heapify(int i) {
+        int largest = i;
+        int left = 2 * i;
+        int right = 2 * i + 1;
+
+        if (left <= size && heap[left] > heap[largest])
+            largest = left;
+
+        if (right <= size && heap[right] > heap[largest])
+            largest = right;
+
+        if (largest != i) {
+            int temp = heap[i];
+            heap[i] = heap[largest];
+            heap[largest] = temp;
+            heapify(largest);
+        }
+    }
+
+    // Display heap
+    public void display() {
+        for (int i = 1; i <= size; i++)
+            System.out.print(heap[i] + " ");
+        System.out.println();
+    }
+
+    public static void main(String[] args) {
+        PriorityQueueHeap pq = new PriorityQueueHeap(10);
+        pq.insert(30);
+        pq.insert(50);
+        pq.insert(20);
+        pq.insert(15);
+        pq.insert(10);
+
+        System.out.print("Heap elements: ");
+        pq.display();
+
+        System.out.println("Removed highest priority element: " + pq.remove());
+        System.out.print("After removal: ");
+        pq.display();
+    }
+}
