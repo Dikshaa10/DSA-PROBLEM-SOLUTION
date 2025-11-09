@@ -1,0 +1,10 @@
+// find kth smallest number 
+class Array{
+satic void Ksmallest(int[] arr , int k){
+Array.sort(arr);
+return arr(k-1);
+public satic void main (string[] args){
+int [] arr = {10,23,11,33,56,4};
+int k =4 ;
+Ksmallest(arr , k);
+}
