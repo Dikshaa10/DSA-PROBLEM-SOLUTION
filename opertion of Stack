@@ -1,0 +1,32 @@
+ class Node{
+int data ;
+Node next ;
+Node(int x){
+this.data = x ;
+this.next = null;
+// insertion
+void push(int x){
+Node newnode = new Node(x);
+newnode.next = top ;
+top = newnode;
+System.out.println("pushed" + x);
+
+// deletion 
+int pop(){
+if(top== null){
+return -1 ;
+int val = top.x ;
+ top= top.next  ;
+}
+// top 
+int peek()
+if(top== null)return -1 ;
+return top.data;
+}
+void Display(){
+node temp = head ;
+while(temp!=null){
+temp = temp.next ;
+}
+System.out.println();
+
