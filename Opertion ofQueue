@@ -1,0 +1,47 @@
+ class Node{
+int data ;
+Node next ;
+Node(int data){
+this.data = data ;
+this.next = null;
+ static Queue{
+static  Node head =null ;
+static Node tail = null ;
+
+public static isEmplty(){
+return head==null && tail == null;
+}
+void add(int data){
+Node newnode = new Node(data){
+if(isEmpty){
+ tail= head =newnode ;
+else{
+tail.next =newnode ;
+tail = newnode ;
+}
+} 
+int remove(){
+if(isEmpty()){
+System.out.println("empty queue");
+return -1 ;
+int front = head.data ;
+if(head== null)
+tail = null ;
+}
+head = head.next ;
+return front ;
+}
+int Peek(){
+if(isEmpty()){
+return -1
+}
+return = head.data ;
+Queue q = new Queue();
+q.add(1);
+q.add(2);
+while(!q.isEmpty()){
+s.o.u.t(q.peek());
+q.remove;
+}
+}
+}
